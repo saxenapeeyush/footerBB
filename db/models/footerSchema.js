@@ -5,7 +5,7 @@ const footer = new footerSchema({
     currentStatus:{type:Boolean},
     titleFooter:[{
         titleName:{type:String},
-        titleLists:[{
+        titleList:[{
             listName:{type:String},
             listLink:{type:String}
         }]

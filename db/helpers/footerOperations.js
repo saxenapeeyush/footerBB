@@ -12,7 +12,7 @@ const footerOperations = {
                         res.status(500).json({"message":"Unable to add to the database ","Status":config.ERROR});
                             }
                     else{
-                        res.status(200).json({"message":"Added to database Successfully","Status":config.SUCCESS});
+                        res.status(200).json({"message":"Added to database Successfully","Status":config.SUCCESS,"footerobject":footerObject});
                             }
             });
             }
@@ -27,7 +27,7 @@ const footerOperations = {
                                 res.status(500).json({"message":"Unable to add to the database ","Status":config.ERROR});
                                     }
                             else{
-                                res.status(200).json({"message":"Added to database Successfully","Status":config.SUCCESS});
+                                res.status(200).json({"message":"Added to database Successfully","Status":config.SUCCESS,"footerobject":footerObject});
                                     }
                     });
                     }
