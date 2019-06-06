@@ -4,10 +4,12 @@ const footerObject=require('../models/footermodel');
 const titleListModel=require('../models/titlelistmodel');
 const titlefootermodel=require('../models/titlefootermodel');
 footer.post('/savefooter',(req,res)=> {
-    console.log("heelo");
+    let titleFooterPrevious=footerObject.titleFooter;
+    if(titleFooterPrevious.length>0) {
+        titleFooterPrevious.length=0;
+    }
     let titleFooter=req.body.titleFooter;
     titleFooter.forEach((eachFooterTitle)=> {
-        console.log("i am here ");
         let titleList=[];
         let titleName=eachFooterTitle.titleName;
         let titleListArray=eachFooterTitle.titleList;
@@ -24,10 +26,8 @@ footer.post('/savefooter',(req,res)=> {
                 titleList.push(listObject);
         });
         let titleFooterObject=new titlefootermodel(titleName,titleList);
-        console.log(titleFooterObject);
-        footerObject.titleFooter.push(titleFooterObject);
+        titleFooterPrevious.push(titleFooterObject);
     });
-    // console.log(footerObject.titleFooter[0].titleList);
     footerOperations.uploadFooterData(footerObject,res);
 });
 footer.get('/getfooterdata',(req,res)=> {
